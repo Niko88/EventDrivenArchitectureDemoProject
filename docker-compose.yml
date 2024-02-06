@@ -1,0 +1,79 @@
+version: '3.4'
+
+services:
+
+  rabbitmq: # login guest:guest
+    image: masstransit/rabbitmq
+    user: root
+    hostname: "rabbitmq"
+    labels:
+      NAME: "rabbit"
+    ports:
+    - "4369:4369"
+    - "5671:5671"
+    - "5672:5672"
+    - "25672:25672"
+    - "15671:15671"
+    - "15672:15672"
+  
+  db:
+    image: "mcr.microsoft.com/mssql/server"
+    user: root
+    hostname: "db"
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "Password123"
+      ACCEPT_EULA: "Y"
+
+  stockApi:
+    image: ${DOCKER_REGISTRY-}stockapi
+    build:
+      context: .
+      dockerfile: MicroServices/StockManagement/Stock.Api/Dockerfile
+    depends_on:
+     - "rabbitmq"
+     - "db"
+
+  ordersApi:
+    image: ${DOCKER_REGISTRY-}ordersapi
+    build:
+      context: .
+      dockerfile: MicroServices/Orders/Orders.Api/Dockerfile
+    depends_on:
+     - "rabbitmq"
+     - "db"
+
+  paymentsApi:
+    image: ${DOCKER_REGISTRY-}paymentsapi
+    build:
+      context: .
+      dockerfile: MicroServices/Payments/Payments.Api/Dockerfile
+    depends_on:
+     - "rabbitmq"
+     - "db"
+
+  revenuemanagementApi:
+    image: ${DOCKER_REGISTRY-}revenuemanagementapi
+    build:
+      context: .
+      dockerfile: MicroServices/RevenueManagement/RevenueManagement.Api/Dockerfile
+    depends_on:
+     - "rabbitmq"
+     - "db"
+
+  paymentprovider:
+    image: ${DOCKER_REGISTRY-}paymentprovider
+    build:
+      context: .
+      dockerfile: ExternalClients/PaymentProvider/Dockerfile
+
+  examplestore:
+    image: ${DOCKER_REGISTRY-}examplestore
+    build:
+      context: .
+      dockerfile: ExternalClients/ExampleStore/Dockerfile
+    depends_on:
+     - "stockApi"
+
+

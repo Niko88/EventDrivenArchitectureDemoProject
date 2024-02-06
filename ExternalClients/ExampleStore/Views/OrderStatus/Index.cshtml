@@ -1,0 +1,30 @@
+﻿@model OrderStatusViewModel
+@{
+    ViewData["Title"] = "OrderStatus";
+}
+
+@if (Model.OrderFound)
+{
+    <form>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ResponseContent.OrderedItem, "Selected Item")
+            @Html.TextBoxFor(m => m.ResponseContent.OrderedItem, new { @readonly = true, @class = "form-control" })
+        </div>
+        <br/>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ResponseContent.OrderStatus, "Order Status")
+            @Html.TextBoxFor(m => m.ResponseContent.OrderStatus, new { @readonly = true, @class = "form-control" })
+        </div>
+        <br />
+        <div class="form-group">
+            @Html.LabelFor(m => m.ResponseContent.PaymentStatus, "Payment Status")
+            @Html.TextBoxFor(m => m.ResponseContent.PaymentStatus, new { @readonly = true, @class = "form-control" })
+        </div>
+    </form>
+}
+else
+{
+    <div class="alert alert-danger">Order not found</div>
+}
+
+

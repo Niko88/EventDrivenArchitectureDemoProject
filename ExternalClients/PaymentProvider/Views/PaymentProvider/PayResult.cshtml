@@ -1,0 +1,13 @@
+﻿@model PayResultViewModel
+
+<meta http-equiv="refresh" content="3;url=@Model.RedirectUrl">
+
+@if (Model.PaymentIsSuccessful)
+{
+    <div class="alert alert-success">Payment Succeeded Horray!</div>
+}
+else
+{
+    <div class="alert alert-danger">Aw noo payment failed</div>
+}
+

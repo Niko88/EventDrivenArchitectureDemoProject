@@ -1,0 +1,18 @@
+﻿@model PayViewModel
+@{
+    ViewData["Title"] = "Pay";
+}
+<h1>@ViewData["Title"]</h1>
+
+<img src="~/sqrl.jpg" style="height:200px;width:200px;"/>
+<div class="alert-info">
+    <p>Payment of $ @Model.Amount.</p>
+</div>
+@using (Html.BeginForm("PayResult", "PaymentProvider", FormMethod.Post))
+{
+    @Html.HiddenFor(m=>m.SessionId)
+    @Html.LabelFor(m => m.IsSuccess,"Payment Should Succeed")<br/>
+    @Html.CheckBoxFor(m => m.IsSuccess)
+    <hr/>
+    <button class="btn btn-info">Pay</button>
+}
