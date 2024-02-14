@@ -20,7 +20,7 @@
     <ProjectReference Include="..\Payments.Application\Payments.Application.csproj" />
     <ProjectReference Include="..\Payments.Contracts\Payments.Contracts.csproj" />
     <ProjectReference Include="..\Payments.Infrastructure.SquirrelPay\Payments.Infrastructure.SquirrelPay.csproj" />
-    <ProjectReference Include="..\Payments.Infrastructure\Payments.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\Payments.Infrastructure.Persistence\Payments.Infrastructure.Persistence.csproj" />
     <ProjectReference Include="..\Payments.Infrtastructure.EventBus\Payments.Infrastructure.EventBus.csproj" />
   </ItemGroup>
 

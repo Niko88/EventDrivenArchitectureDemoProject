@@ -20,7 +20,7 @@
     <ProjectReference Include="..\Stock.Application\Stock.Application.csproj" />
     <ProjectReference Include="..\Stock.Contracts\Stock.Contracts.csproj" />
     <ProjectReference Include="..\Stock.Infrastructure.EventBus\Stock.Infrastructure.EventBus.csproj" />
-    <ProjectReference Include="..\Stock.Infrastructure\Stock.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\Stock.Infrastructure.Persistence\Stock.Infrastructure.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

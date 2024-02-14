@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payments.Application", "Mic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payments.Contracts", "MicroServices\Payments\Payments.Contracts\Payments.Contracts.csproj", "{87695FD1-D46E-43F7-BACD-6CE0BD6431C8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payments.Infrastructure.Persistence", "MicroServices\Payments\Payments.Infrastructure\Payments.Infrastructure.Persistence.csproj", "{2EC50736-DB96-4726-9F49-C219D0EEF140}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payments.Infrastructure.Persistence", "MicroServices\Payments\Payments.Infrastructure.Persistence\Payments.Infrastructure.Persistence.csproj", "{2EC50736-DB96-4726-9F49-C219D0EEF140}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{8A542447-A62F-469D-B182-4266282A23CA}"
 EndProject
@@ -39,7 +39,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RevenueManagement.Contracts
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RevenueManagement.Application", "MicroServices\RevenueManagement\RevenueManagement.Application\RevenueManagement.Application.csproj", "{96B1F3BD-2436-4D7F-87A3-73EFD9AD8C00}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RevenueManagement.Infrastructure.Persistence", "MicroServices\RevenueManagement\RevenueManagement.Infrastructure\RevenueManagement.Infrastructure.Persistence.csproj", "{DF953E57-94E5-42DC-A714-D4A7302E352B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RevenueManagement.Infrastructure.Persistence", "MicroServices\RevenueManagement\RevenueManagement.Infrastructure.Persistence\RevenueManagement.Infrastructure.Persistence.csproj", "{DF953E57-94E5-42DC-A714-D4A7302E352B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stock.Api", "MicroServices\StockManagement\Stock.Api\Stock.Api.csproj", "{C5A28E35-CB37-43BC-8D25-D7DAFE66B2AE}"
 EndProject
@@ -47,7 +47,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stock.Contracts", "MicroSer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stock.Application", "MicroServices\StockManagement\Stock.Application\Stock.Application.csproj", "{84043F75-BE2D-4D96-A4D9-A2BC244A2F5F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stock.Infrastructure.Persistence", "MicroServices\StockManagement\Stock.Infrastructure\Stock.Infrastructure.Persistence.csproj", "{FDF94DAD-7DA5-45D6-9772-B27D31218170}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stock.Infrastructure.Persistence", "MicroServices\StockManagement\Stock.Infrastructure.Persistence\Stock.Infrastructure.Persistence.csproj", "{FDF94DAD-7DA5-45D6-9772-B27D31218170}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExampleStore", "ExampleStore", "{C45B5496-331E-4C52-9896-9797BC19733C}"
 EndProject
