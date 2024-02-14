@@ -1,10 +1,10 @@
 ﻿using MassTransit;
-using Orders.Infrastructure.Entities;
+using Orders.Infrastructure.Persistence.Entities;
 using Payments.Contracts.Commands;
 using Payments.Contracts.Models;
 using Stock.Contracts.Events;
 
-namespace Orders.Infrastructure.Sagas.Activities
+namespace Orders.Infrastructure.Persistence.Sagas.Activities
 {
     internal class GeneratePaymentSessionActivity : IStateMachineActivity<Order, AllocationCompletedSuccessfully>
     {

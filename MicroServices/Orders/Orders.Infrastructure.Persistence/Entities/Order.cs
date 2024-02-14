@@ -1,6 +1,6 @@
 ﻿using MassTransit;
 
-namespace Orders.Infrastructure.Entities
+namespace Orders.Infrastructure.Persistence.Entities
 {
     public class Order : SagaStateMachineInstance
     {

@@ -24,7 +24,8 @@ namespace ExampleStore.Controllers
             var stock = await stockApiService.GetStockItems();
             var viewModel = new HomeViewModel
             {
-                itemDetails = stock.StockItems.FirstOrDefault()
+                ItemDetails = stock.StockItems.FirstOrDefault(),
+                CustomerCode = "Test customer"
             };
             return View(viewModel);
         }

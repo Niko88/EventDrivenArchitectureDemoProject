@@ -1,19 +1,17 @@
 ﻿using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
-using Stock.Application.Consumers;
+using RevenueManagement.Application.Consumers;
 
-namespace Stock.Application
+namespace RevenueManagement.Infrastructure.EventBus
 {
-    public static class ApplicationConnector
+    public static class EventBusConnector
     {
-        public static void ConnectApplicationLayer(this IServiceCollection services, string hostName)
+        public static void ConnectEventBus(this IServiceCollection services, string hostName)
         {
             services.AddMassTransit(cfg =>
             {
                 cfg.SetKebabCaseEndpointNameFormatter();
-                cfg.AddConsumersFromNamespaceContaining<AllocateStockItemsConsumer>();
-                cfg.AddConsumersFromNamespaceContaining<DeallocateStockForOrderConsumer>();
-
+                cfg.AddConsumersFromNamespaceContaining<RecordRevenueConsumer>();
                 cfg.UsingRabbitMq((context, configurator) =>
                 {
                     configurator.Host(hostName);

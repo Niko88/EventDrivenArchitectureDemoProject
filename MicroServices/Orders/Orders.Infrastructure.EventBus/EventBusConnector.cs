@@ -1,17 +1,20 @@
-﻿using MassTransit;
+﻿
+
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Orders.Application.Consumers;
 using Orders.Contracts.Commands;
-using Orders.Infrastructure.DBContexts;
-using Orders.Infrastructure.Entities;
-using Orders.Infrastructure.Repositories;
-using Orders.Infrastructure.Sagas.StateMachines;
+using Orders.Contracts.Queries;
+using Orders.Infrastructure.Persistence.DBContexts;
+using Orders.Infrastructure.Persistence.Entities;
+using Orders.Infrastructure.Persistence.Sagas.StateMachines;
 
-namespace Orders.Infrastructure
+namespace Orders.Infrastructure.EventBus
 {
-    public static class OrchestratorConnector
+    public static class EventBusConnector
     {
-        public static void ConnectOrchestrator(this IServiceCollection services, string hostName, string connectionString)
+        public static void ConnectEventBusWithOrchestrators(this IServiceCollection services, string hostName, string connectionString)
         {
             services.AddMassTransit(cfg =>
             {
@@ -28,8 +31,12 @@ namespace Orders.Infrastructure
                         });
                     });
 
+                //Configure consumers (event handlers)
+                cfg.AddConsumersFromNamespaceContaining<GetOrderStatusConsumer>();
+
                 //Configure request clients (event publishers)
-                cfg.AddRequestClient<InitiateOrder>();
+                cfg.AddRequestClient<InitiateOrderCommand>();
+                cfg.AddRequestClient<GetOrderStatusQuery>();
 
                 //Configure EventBus, in our case RabbitMQ
                 cfg.UsingRabbitMq((context, configurator) =>
@@ -39,12 +46,7 @@ namespace Orders.Infrastructure
                 });
             });
 
-            services.AddDbContext<OrdersContext>(ob =>
-                    ob.UseSqlServer(connectionString,
-                        so => so.MigrationsHistoryTable("__MigrationsHistory", "Orders"))
-                , ServiceLifetime.Transient);
 
-            services.AddTransient<IOrderRepository, OrderRepository>();
         }
     }
 }

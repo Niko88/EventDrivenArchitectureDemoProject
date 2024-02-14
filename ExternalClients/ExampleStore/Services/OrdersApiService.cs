@@ -9,13 +9,13 @@ namespace ExampleStore.Services
             using var httpClient = clientFactory.CreateClient("OrderApi");
             var response = await httpClient.PostAsJsonAsync("", new
             {
-                ItemCode = viewModel.itemDetails.Sku,
+                ItemCode = viewModel.ItemDetails.Sku,
                 CustomerCode = viewModel.CustomerCode,
                 Quantity = 1,
-                Price = viewModel.itemDetails.Price,
+                Price = viewModel.ItemDetails.Price,
                 RedirectUrl = "https://localhost:5053/OrderStatus?orderId=",
                 RevenueChannel = "ExampleShop",
-                RevenueCode = viewModel.itemDetails.RevenueCode
+                RevenueCode = viewModel.ItemDetails.RevenueCode
             });
 
             if (response.IsSuccessStatusCode)

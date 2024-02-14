@@ -1,10 +1,10 @@
 ﻿using MassTransit;
-using Orders.Infrastructure.Entities;
+using Orders.Infrastructure.Persistence.Entities;
 using Payments.Contracts.Events;
 using Stock.Contracts.Commands;
 using Stock.Contracts.Events;
 
-namespace Orders.Infrastructure.Sagas.Activities;
+namespace Orders.Infrastructure.Persistence.Sagas.Activities;
 
 public class DeallocateStockActivity :
     IStateMachineActivity<Order, AllocationFailed>,

@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using Orders.Infrastructure;
-using Orders.Infrastructure.DBContexts;
+using Orders.Infrastructure.EventBus;
+using Orders.Infrastructure.Persistence;
+using Orders.Infrastructure.Persistence.DBContexts;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +9,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.ConnectOrchestrator(
+builder.Services.ConnectPersistenceLayer(builder.Configuration["OrdersDB"]);
+builder.Services.ConnectEventBusWithOrchestrators(
     hostName: builder.Configuration["RabbitMQ_Host"],
     connectionString: builder.Configuration["OrdersDB"]
 );

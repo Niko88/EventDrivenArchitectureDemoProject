@@ -1,19 +1,19 @@
 ﻿using MassTransit;
 using Orders.Contracts.Commands;
-using Orders.Infrastructure.Entities;
+using Orders.Infrastructure.Persistence.Entities;
 using Stock.Contracts.Commands;
 using Stock.Contracts.Models;
 
-namespace Orders.Infrastructure.Sagas.Activities;
+namespace Orders.Infrastructure.Persistence.Sagas.Activities;
 
-public class AllocateStockActivity : IStateMachineActivity<Order, InitiateOrder>
+public class AllocateStockActivity : IStateMachineActivity<Order, InitiateOrderCommand>
 {
-    public async Task Execute(BehaviorContext<Order, InitiateOrder> context, IBehavior<Order, InitiateOrder> next)
+    public async Task Execute(BehaviorContext<Order, InitiateOrderCommand> context, IBehavior<Order, InitiateOrderCommand> next)
     {
         await context.Publish(new AllocateStockItemCommand(
-            context.Saga.CorrelationId, 
+            context.Saga.CorrelationId,
             new StockToAllocateDetails(
-                context.Message.OrderDetails.ItemCode, 
+                context.Message.OrderDetails.ItemCode,
                 context.Message.OrderDetails.Quantity
         )));
 
@@ -32,7 +32,7 @@ public class AllocateStockActivity : IStateMachineActivity<Order, InitiateOrder>
         visitor.Visit(this);
     }
 
-    public async Task Faulted<TException>(BehaviorExceptionContext<Order, InitiateOrder, TException> context, IBehavior<Order, InitiateOrder> next) where TException : Exception
+    public async Task Faulted<TException>(BehaviorExceptionContext<Order, InitiateOrderCommand, TException> context, IBehavior<Order, InitiateOrderCommand> next) where TException : Exception
     {
         await next.Faulted(context);
     }

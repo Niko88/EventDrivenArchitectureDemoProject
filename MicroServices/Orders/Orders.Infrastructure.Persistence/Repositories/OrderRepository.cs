@@ -1,18 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Orders.Infrastructure.DBContexts;
-using Orders.Infrastructure.Entities;
+using Orders.Application.Repositories;
+using Orders.Contracts.Models;
+using Orders.Infrastructure.Persistence.DBContexts;
 
-namespace Orders.Infrastructure.Repositories;
+namespace Orders.Infrastructure.Persistence.Repositories;
 
 public class OrderRepository(OrdersContext dbContext) : IOrderRepository
 {
-    public async Task<Order?> GetOrder(Guid orderId)
+    public async Task<OrderStatus?> GetOrderStatus(Guid orderId)
     {
-        return await dbContext.Orders.FirstOrDefaultAsync(o => o.CorrelationId == orderId);
+        var order = await dbContext.Orders.FirstOrDefaultAsync(o => o.CorrelationId == orderId);
+        return new OrderStatus(order.ItemCode, order.State, order.PaymentStatus);
     }
-}
-
-public interface IOrderRepository
-{
-    public Task<Order?> GetOrder(Guid orderId);
 }

@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using Payments.Application;
 using Payments.Infrastructure;
 using Payments.Infrastructure.DbContexts;
+using Payments.Infrastructure.EventBus;
 using Payments.Infrastructure.SquirrelPay;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.ConnectApplicationLayer(builder.Configuration["RabbitMQ_Host"]);
+builder.Services.ConnectEventBus(builder.Configuration["RabbitMQ_Host"]);
 builder.Services.ConnectPersistenceLayer(builder.Configuration["PaymentsDB"]);
 builder.Services.ConnectSquirrelPay(new ProviderConfiguration
 {

@@ -6,13 +6,13 @@
 @using (Html.BeginForm("Pay", "Home", FormMethod.Post))
 {
     <div class="form-group">
-        @Html.LabelFor(m => m.itemDetails.Name, "Selected Item")
-        @Html.TextBoxFor(m => m.itemDetails.Name, new { @readonly = true, @class = "form-control" })
+        @Html.LabelFor(m => m.ItemDetails.Name, "Selected Item")
+        @Html.TextBoxFor(m => m.ItemDetails.Name, new { @readonly = true, @class = "form-control" })
     </div>
     <br/>
     <div class="form-group">
-        @Html.LabelFor(m => m.itemDetails.Price, "Price")
-        @Html.TextBoxFor(m => m.itemDetails.Price, new { @readonly = true, @class = "form-control"})
+        @Html.LabelFor(m => m.ItemDetails.Price, "Price")
+        @Html.TextBoxFor(m => m.ItemDetails.Price, new { @readonly = true, @class = "form-control"})
     </div>
     <br />
     <div class="form-group">
@@ -21,10 +21,10 @@
         @Html.ValidationMessageFor(model => model.CustomerCode)
     </div>
     <br />
-    @Html.HiddenFor(m => m.itemDetails.Sku)
-    @Html.HiddenFor(m => m.itemDetails.RevenueCode)
+    @Html.HiddenFor(m => m.ItemDetails.Sku)
+    @Html.HiddenFor(m => m.ItemDetails.RevenueCode)
     <button class="btn btn-primary">Pay</button>
 }
 <hr/>
 
-<div class="alert alert-info">Available Quantity: @Model.itemDetails.AvailableQuantity</div>
+<div class="alert alert-info">Available Quantity: @Model.ItemDetails.AvailableQuantity</div>

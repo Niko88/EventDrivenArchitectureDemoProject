@@ -11,11 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Stock.Contracts\Stock.Contracts.csproj" />
+    <ProjectReference Include="..\Orders.Contracts\Orders.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

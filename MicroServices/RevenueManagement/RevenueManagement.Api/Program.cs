@@ -1,11 +1,11 @@
 using Microsoft.EntityFrameworkCore;
-using RevenueManagement.Application;
+using RevenueManagement.Infrastructure.EventBus;
 using RevenueManagement.Infrastructure.Persistence;
 using RevenueManagement.Infrastructure.Persistence.DbContexts;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.ConnectPersistenceLayer(builder.Configuration["RevenueManagementDB"]);
-builder.Services.ConnectApplicationLayer(builder.Configuration["RabbitMQ_Host"]);
+builder.Services.ConnectEventBus(builder.Configuration["RabbitMQ_Host"]);
 
 var app = builder.Build();
 

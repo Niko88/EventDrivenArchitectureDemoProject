@@ -1,14 +1,14 @@
 ﻿using MassTransit;
 using Orders.Contracts.PublishedEvents;
-using Orders.Infrastructure.Entities;
+using Orders.Infrastructure.Persistence.Entities;
 using Payments.Contracts.Events;
 using Stock.Contracts.Events;
 
-namespace Orders.Infrastructure.Sagas.Activities;
+namespace Orders.Infrastructure.Persistence.Sagas.Activities;
 
-public class RespondToClientActivity : 
-    IStateMachineActivity<Order, SessionGeneratedEvent>, 
-    IStateMachineActivity<Order, SessionGenerationErrorEvent>, 
+public class RespondToClientActivity :
+    IStateMachineActivity<Order, SessionGeneratedEvent>,
+    IStateMachineActivity<Order, SessionGenerationErrorEvent>,
     IStateMachineActivity<Order, AllocationFailed>
 {
     public async Task Execute(BehaviorContext<Order, SessionGeneratedEvent> context, IBehavior<Order, SessionGeneratedEvent> next)

@@ -15,13 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orders.Api", "MicroServices
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orders.Contracts", "MicroServices\Orders\Orders.Contracts\Orders.Contracts.csproj", "{29629C78-750C-4B9B-9CC4-CA062C39989F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orders.Infrastructure", "MicroServices\Orders\Orders.Infrastructure.Persistence\Orders.Infrastructure.csproj", "{0E5ABE94-EAC3-495A-8365-AE352685FDB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orders.Infrastructure.Persistence", "MicroServices\Orders\Orders.Infrastructure.Persistence\Orders.Infrastructure.Persistence.csproj", "{0E5ABE94-EAC3-495A-8365-AE352685FDB5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payments.Application", "MicroServices\Payments\Payments.Application\Payments.Application.csproj", "{F5315241-155F-4C26-8214-7256FDAEA9BA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payments.Contracts", "MicroServices\Payments\Payments.Contracts\Payments.Contracts.csproj", "{87695FD1-D46E-43F7-BACD-6CE0BD6431C8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payments.Infrastructure", "MicroServices\Payments\Payments.Infrastructure\Payments.Infrastructure.csproj", "{2EC50736-DB96-4726-9F49-C219D0EEF140}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payments.Infrastructure.Persistence", "MicroServices\Payments\Payments.Infrastructure\Payments.Infrastructure.Persistence.csproj", "{2EC50736-DB96-4726-9F49-C219D0EEF140}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{8A542447-A62F-469D-B182-4266282A23CA}"
 EndProject
@@ -56,6 +56,16 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MicroServices", "MicroServices", "{EC52D7B8-9803-429B-A4BD-7E52D5631DD7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalClients", "ExternalClients", "{66A98880-A380-41AE-9421-06FE307E6A85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orders.Application", "MicroServices\Orders\Orders.Application\Orders.Application.csproj", "{39C6E36C-AD9C-4F3B-A3D0-8735FD48AFD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orders.Infrastructure.EventBus", "MicroServices\Orders\Orders.Infrastructure.EventBus\Orders.Infrastructure.EventBus.csproj", "{D0D41F6F-7198-4B9B-982D-48880E8E7F32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payments.Infrastructure.EventBus", "MicroServices\Payments\Payments.Infrtastructure.EventBus\Payments.Infrastructure.EventBus.csproj", "{1E76AAEB-B3A1-4B27-B7F3-B53A798DE8EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevenueManagement.Infrastructure.EventBus", "MicroServices\RevenueManagement\RevenueManagement.Infrastructure.EventBus\RevenueManagement.Infrastructure.EventBus.csproj", "{D22E601F-7113-4360-98A4-32503FE5D88D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stock.Infrastructure.EventBus", "MicroServices\StockManagement\Stock.Infrastructure.EventBus\Stock.Infrastructure.EventBus.csproj", "{6B5FAAEC-DC2E-43A8-A9C0-BE503C475349}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -139,6 +149,26 @@ Global
 		{D7634462-CE2D-4585-939F-F600B6D1A776}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7634462-CE2D-4585-939F-F600B6D1A776}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7634462-CE2D-4585-939F-F600B6D1A776}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39C6E36C-AD9C-4F3B-A3D0-8735FD48AFD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39C6E36C-AD9C-4F3B-A3D0-8735FD48AFD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39C6E36C-AD9C-4F3B-A3D0-8735FD48AFD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39C6E36C-AD9C-4F3B-A3D0-8735FD48AFD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0D41F6F-7198-4B9B-982D-48880E8E7F32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0D41F6F-7198-4B9B-982D-48880E8E7F32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0D41F6F-7198-4B9B-982D-48880E8E7F32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0D41F6F-7198-4B9B-982D-48880E8E7F32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E76AAEB-B3A1-4B27-B7F3-B53A798DE8EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E76AAEB-B3A1-4B27-B7F3-B53A798DE8EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E76AAEB-B3A1-4B27-B7F3-B53A798DE8EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E76AAEB-B3A1-4B27-B7F3-B53A798DE8EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D22E601F-7113-4360-98A4-32503FE5D88D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D22E601F-7113-4360-98A4-32503FE5D88D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D22E601F-7113-4360-98A4-32503FE5D88D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D22E601F-7113-4360-98A4-32503FE5D88D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B5FAAEC-DC2E-43A8-A9C0-BE503C475349}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B5FAAEC-DC2E-43A8-A9C0-BE503C475349}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B5FAAEC-DC2E-43A8-A9C0-BE503C475349}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B5FAAEC-DC2E-43A8-A9C0-BE503C475349}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -168,6 +198,11 @@ Global
 		{FDF94DAD-7DA5-45D6-9772-B27D31218170} = {A11F7F13-8257-4869-BFA0-1F38B8564E38}
 		{C45B5496-331E-4C52-9896-9797BC19733C} = {66A98880-A380-41AE-9421-06FE307E6A85}
 		{D7634462-CE2D-4585-939F-F600B6D1A776} = {A0B37FA3-EF67-4172-9B4D-70A71A18B556}
+		{39C6E36C-AD9C-4F3B-A3D0-8735FD48AFD2} = {8A15F05C-6482-4057-B0CC-7000B3EF0FBE}
+		{D0D41F6F-7198-4B9B-982D-48880E8E7F32} = {8A15F05C-6482-4057-B0CC-7000B3EF0FBE}
+		{1E76AAEB-B3A1-4B27-B7F3-B53A798DE8EA} = {A0B37FA3-EF67-4172-9B4D-70A71A18B556}
+		{D22E601F-7113-4360-98A4-32503FE5D88D} = {3FFFD95C-F97E-459A-9330-6A10C490580F}
+		{6B5FAAEC-DC2E-43A8-A9C0-BE503C475349} = {A11F7F13-8257-4869-BFA0-1F38B8564E38}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E528F11F-E452-42EF-B848-E29B70746AA2}

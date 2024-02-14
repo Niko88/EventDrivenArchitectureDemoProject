@@ -12,13 +12,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Stock.Application\Stock.Application.csproj" />
     <ProjectReference Include="..\Stock.Contracts\Stock.Contracts.csproj" />
+    <ProjectReference Include="..\Stock.Infrastructure.EventBus\Stock.Infrastructure.EventBus.csproj" />
     <ProjectReference Include="..\Stock.Infrastructure\Stock.Infrastructure.Persistence.csproj" />
   </ItemGroup>
 

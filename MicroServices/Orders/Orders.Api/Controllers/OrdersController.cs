@@ -4,33 +4,29 @@ using Microsoft.AspNetCore.Mvc;
 using Orders.Contracts.Commands;
 using Orders.Contracts.Models;
 using Orders.Contracts.PublishedEvents;
-using Orders.Infrastructure.Repositories;
+using Orders.Contracts.Queries;
 
 namespace Orders.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class OrdersController(IRequestClient<InitiateOrder> initiateOrderRequestClient, IOrderRepository orderRepository) : ControllerBase
+    public class OrdersController(
+        IRequestClient<InitiateOrderCommand> initiateOrderRequestClient, 
+        IRequestClient<GetOrderStatusQuery> getOrderDetailsRequestClient
+    ) : ControllerBase
     {
         [HttpGet]
         public async Task<ActionResult> GetOrder(Guid orderId)
         {
-            var order= await orderRepository.GetOrder(orderId);
+            var orderStatusResponse= await getOrderDetailsRequestClient.GetResponse<OrderStatus>(new GetOrderStatusQuery(orderId));
 
-            return order is not null ?
-                Ok(new
-                {
-                    OrderedItem = order.ItemCode,
-                    OrderStatus = order.State,
-                    PaymentStatus = order.PaymentStatus
-                }) : 
-                NotFound();
+            return Ok(orderStatusResponse.Message);
         }
 
         [HttpPost]
         public async Task<ActionResult> CreateOrder(OrderDetails details)
         {
-            var orderGenerationResponse= await initiateOrderRequestClient.GetResponse<OrderGenerationResult>(new InitiateOrder(
+            var orderGenerationResponse= await initiateOrderRequestClient.GetResponse<OrderGenerationResult>(new InitiateOrderCommand(
                 Guid.NewGuid(),
                 details)
             );

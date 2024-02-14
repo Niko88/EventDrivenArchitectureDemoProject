@@ -1,13 +1,13 @@
 ﻿using MassTransit;
 using Orders.Contracts.Commands;
-using Orders.Infrastructure.Entities;
-using Orders.Infrastructure.Sagas.Activities;
+using Orders.Infrastructure.Persistence.Entities;
+using Orders.Infrastructure.Persistence.Sagas.Activities;
 using Payments.Contracts.Events;
 using RevenueManagement.Contracts.Commands;
 using RevenueManagement.Contracts.Models;
 using Stock.Contracts.Events;
 
-namespace Orders.Infrastructure.Sagas.StateMachines
+namespace Orders.Infrastructure.Persistence.Sagas.StateMachines
 {
     public class OrderStateMachine : MassTransitStateMachine<Order>
     {
@@ -22,7 +22,7 @@ namespace Orders.Infrastructure.Sagas.StateMachines
 
         #region Events
 
-        public Event<InitiateOrder> InitiateOrder { get; private set; } = null!;
+        public Event<InitiateOrderCommand> InitiateOrder { get; private set; } = null!;
         public Event<AllocationCompletedSuccessfully> AllocationSuccessReceived { get; private set; } = null!;
         public Event<AllocationFailed> AllocationErrorReceived { get; private set; } = null!;
         public Event<SessionGeneratedEvent> SessionGenerationSuccessReceived { get; private set; } = null!;

@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Orders.Infrastructure.DBContexts;
-using Orders.Infrastructure.Entities;
+using Orders.Infrastructure.Persistence.DBContexts;
+using Orders.Infrastructure.Persistence.Entities;
 
-namespace Orders.Infrastructure.EntityConfiguration
+namespace Orders.Infrastructure.Persistence.EntityConfiguration
 {
     internal class OrderEntityTypeConfiguration : IEntityTypeConfiguration<Order>
     {

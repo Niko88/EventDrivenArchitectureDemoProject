@@ -12,11 +12,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\RevenueManagement.Application\RevenueManagement.Application.csproj" />
+    <ProjectReference Include="..\RevenueManagement.Infrastructure.EventBus\RevenueManagement.Infrastructure.EventBus.csproj" />
     <ProjectReference Include="..\RevenueManagement.Infrastructure\RevenueManagement.Infrastructure.Persistence.csproj" />
   </ItemGroup>
 

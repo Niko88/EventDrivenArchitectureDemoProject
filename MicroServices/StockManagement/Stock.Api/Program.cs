@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Stock.Application;
+using Stock.Infrastructure.EventBus;
 using Stock.Infrastructure.Persistence;
 using Stock.Infrastructure.Persistence.DbContexts;
 using Stock.Infrastructure.Persistence.Entities;
@@ -13,7 +14,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.ConnectPersistenceLayer(builder.Configuration["StockDB"]);
-builder.Services.ConnectApplicationLayer(builder.Configuration["RabbitMQ_Host"]);
+builder.Services.ConnectEventBus(builder.Configuration["RabbitMQ_Host"]);
 
 var app = builder.Build();
 

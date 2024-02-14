@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Orders.Infrastructure.Entities;
-using Orders.Infrastructure.EntityConfiguration;
+using Orders.Infrastructure.Persistence.Entities;
+using Orders.Infrastructure.Persistence.EntityConfiguration;
 
-namespace Orders.Infrastructure.DBContexts
+namespace Orders.Infrastructure.Persistence.DBContexts
 {
     public class OrdersContext : DbContext
     {
